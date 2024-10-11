@@ -1,0 +1,47 @@
+requirement.txt
+appsettings.Development.json
+appsettings.json
+contact manager backend.csproj
+
+
+# Build Folders (the binaries)
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.sln
+*.user
+*.suo
+*.csproj.user
+*.csproj.lock
+
+# User-specific files
+*.db
+*.log
+*.mdf
+*.ldf
+*.sqlite
+*.pdb
+
+# Backup files
+*.bak
+
+# Environment variable files
+*.env
+
+# Azure Web App publish settings
+publish/
+
+# Rider files
+.idea/
+
+# ReSharper files
+_ReSharper*/
+*.[Rr]eSharper*
+
+# Rider solution and project files
+*.sln.iml
+
+# Visual Studio Code files
+.vscode/
