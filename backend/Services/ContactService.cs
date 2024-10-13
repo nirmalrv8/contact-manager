@@ -20,7 +20,12 @@ namespace contact_manager_backend.Services
         {
             try
             {
-                return await _context.Contacts.ToListAsync();
+                List<Contact> listOfContacts = await _context.Contacts.ToListAsync();
+                // foreach (var contact in listOfContacts) {
+                //     string statusString = Enum.GetName(typeof(Status), contact.Status);
+                //     contact.Status = statusString;
+                // }
+                return listOfContacts;
             }
             catch (Exception ex)
             {
