@@ -6,7 +6,7 @@ import { Container } from '@mui/material';
 function Dashboard() {
   return (
     <div className="dashboard">
-      <Container maxWidth="lg" style={{ marginTop: '40px' }}>
+      <Container maxWidth="lg">
         <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: '#333' }}>Hello Evano 👋</h1>
         <Stats />
       </Container>

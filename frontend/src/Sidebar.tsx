@@ -4,9 +4,9 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
-import BoxIcon from '@mui/icons-material/Inventory';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import CampaignIcon from '@mui/icons-material/Campaign';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import SettingsIcon from '@mui/icons-material/Settings';
+import WorkIcon from '@mui/icons-material/Work';
 import HelpIcon from '@mui/icons-material/Help';
 import { makeStyles } from '@mui/styles';
 
@@ -31,10 +31,11 @@ const useStyles = makeStyles(() => ({
   },
   logo: {
     padding: '16px',
-    fontSize: '24px',
+    fontSize: '18px',
     fontWeight: 'bold',
     display: 'flex',
     alignItems: 'center',
+    marginBottom: '15px',
   },
   icon: {
     color: '#8F8FA0',
@@ -58,10 +59,10 @@ const Dashboard = () => {
       variant="permanent"
       anchor="left"
     >
-      <Box sx={{ height: 64 }} />
+      <Box sx={{ height: 30 }} />
       <div className={classes.logo}>
         <img src="/logo.png" alt="Dashboard logo" width="32" height="32" style={{ marginRight: '8px' }} />
-        Dashboard v.01
+        Contact Manager
       </div>
       <Divider />
       <List>
@@ -81,9 +82,9 @@ const Dashboard = () => {
           className={classes.listItem}
         >
           <ListItemIcon>
-            <BoxIcon className={selectedIndex === 1 ? classes.selectedIcon : classes.icon} />
+            <PeopleIcon className={selectedIndex === 1 ? classes.selectedIcon : classes.icon} />
           </ListItemIcon>
-          <ListItemText primary="Product" />
+          <ListItemText primary="Groups" />
         </ListItemButton>
         <ListItemButton
           selected={selectedIndex === 2}
@@ -91,9 +92,9 @@ const Dashboard = () => {
           className={classes.listItem}
         >
           <ListItemIcon>
-            <PeopleIcon className={selectedIndex === 2 ? classes.selectedIcon : classes.icon} />
+            <FavoriteIcon className={selectedIndex === 2 ? classes.selectedIcon : classes.icon} />
           </ListItemIcon>
-          <ListItemText primary="Customers" />
+          <ListItemText primary="Favorites" />
         </ListItemButton>
         <ListItemButton
           selected={selectedIndex === 3}
@@ -101,9 +102,9 @@ const Dashboard = () => {
           className={classes.listItem}
         >
           <ListItemIcon>
-            <AttachMoneyIcon className={selectedIndex === 3 ? classes.selectedIcon : classes.icon} />
+            <WorkIcon className={selectedIndex === 3 ? classes.selectedIcon : classes.icon} />
           </ListItemIcon>
-          <ListItemText primary="Income" />
+          <ListItemText primary="Activities" />
         </ListItemButton>
         <ListItemButton
           selected={selectedIndex === 4}
@@ -111,9 +112,9 @@ const Dashboard = () => {
           className={classes.listItem}
         >
           <ListItemIcon>
-            <CampaignIcon className={selectedIndex === 4 ? classes.selectedIcon : classes.icon} />
+            <SettingsIcon className={selectedIndex === 4 ? classes.selectedIcon : classes.icon} />
           </ListItemIcon>
-          <ListItemText primary="Promote" />
+          <ListItemText primary="Settings" />
         </ListItemButton>
         <ListItemButton
           selected={selectedIndex === 5}
@@ -123,7 +124,7 @@ const Dashboard = () => {
           <ListItemIcon>
             <HelpIcon className={selectedIndex === 5 ? classes.selectedIcon : classes.icon} />
           </ListItemIcon>
-          <ListItemText primary="Help" />
+          <ListItemText primary="Support" />
         </ListItemButton>
       </List>
     </Drawer>

@@ -11,7 +11,7 @@ const Stats = () => {
       boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.05)',
     }}>
       <Grid container spacing={3}>
-        {/* Total Customers */}
+        {/* Total Contacts */}
         <Grid item xs={12} md={4}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Avatar
@@ -26,7 +26,7 @@ const Stats = () => {
             </Avatar>
             <div>
               <Typography variant="subtitle2" color="textSecondary">
-                Total Customers
+                Total Contacts
               </Typography>
               <Typography variant="h4" sx={{ fontWeight: 700 }}>5,423</Typography>
               <Typography variant="body2" style={{ color: '#00C48C', display: 'flex', alignItems: 'center' }}>
@@ -38,7 +38,7 @@ const Stats = () => {
           </div>
         </Grid>
 
-        {/* Members */}
+        {/* Family */}
         <Grid item xs={12} md={4}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Avatar
@@ -53,7 +53,7 @@ const Stats = () => {
             </Avatar>
             <div>
               <Typography variant="subtitle2" color="textSecondary">
-                Members
+                Family Contacts
               </Typography>
               <Typography variant="h4" sx={{ fontWeight: 700 }}>1,893</Typography>
               

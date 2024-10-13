@@ -1,14 +1,38 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Typography, Chip, Box } from '@mui/material';
+import { Chip, Box } from '@mui/material';
+import axios from 'axios';
 
 const CustomerTable = () => {
+  const [rows, setRows] = React.useState([]);
+
+  React.useEffect(() => {
+    console.log('fetching data')
+    axios.get('/api/contacts')
+    .then(response => {
+      const contacts = response.data;
+      const mappedRows = contacts.map(contact => ({
+        id: contact.id,
+        name: contact.name,
+        email: contact.email,
+        phone: contact.phone,
+        contactType: contact.contactTypeString,
+        address: contact.address,
+        status: contact.statusString
+      }));
+      setRows(mappedRows);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+  }, []);
+
   const columns = [
-    { field: 'name', headerName: 'Customer Name', flex: 1 },
-    { field: 'company', headerName: 'Company', flex: 1 },
-    { field: 'phone', headerName: 'Phone Number', flex: 1 },
+    { field: 'name', headerName: 'Name', flex: 1 },
     { field: 'email', headerName: 'Email', flex: 1 },
-    { field: 'country', headerName: 'Country', flex: 1 },
+    { field: 'phone', headerName: 'Phone', flex: 1 },
+    { field: 'contactType', headerName: 'Type', flex: 1 },
+    { field: 'address', headerName: 'Address', flex: 1 },
     {
       field: 'status',
       headerName: 'Status',
@@ -26,12 +50,6 @@ const CustomerTable = () => {
     },
   ];
 
-  const rows = [
-    { id: 1, name: 'Jane Cooper', company: 'Microsoft', phone: '(225) 555-0118', email: 'jane@microsoft.com', country: 'United States', status: 'Active' },
-    { id: 2, name: 'Floyd Miles', company: 'Yahoo', phone: '(205) 555-0100', email: 'floyd@yahoo.com', country: 'Kiribati', status: 'Inactive' },
-    { id: 3, name: 'Ronald Richards', company: 'Adobe', phone: '(302) 555-0107', email: 'ronald@adobe.com', country: 'Israel', status: 'Inactive' },
-  ];
-
   return (
     <Box
       sx={{
@@ -42,14 +60,7 @@ const CustomerTable = () => {
         fontFamily: 'Arial, sans-serif',
       }}
     >
-      <Typography variant="h6" style={{ fontWeight: 'bold', marginBottom: '20px' }}>
-        All Customers
-      </Typography>
-      <Typography variant="body1" style={{ color: '#00C48C', fontSize: '14px', marginBottom: '10px' }}>
-        Active Members
-      </Typography>
-
-      <div style={{ height: 400, width: '100%' }}>
+      <div style={{ height: 350, width: '100%' }}>
         <DataGrid
           rows={rows}
           columns={columns}
